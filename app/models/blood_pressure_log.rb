@@ -6,4 +6,6 @@ class BloodPressureLog < ApplicationRecord
   validates :diastolic, presence: true
   validates :diastolic, numericality: { greater_than: 0, only_integer: true, greater_than_or_equal_to: 1, less_than: 200 }
 
+  belongs_to :user
+
 end
