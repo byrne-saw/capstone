@@ -1,0 +1,2 @@
+class BloodPressureLog < ApplicationRecord
+end
