@@ -1,0 +1,1 @@
+json.partial! @blood_pressure_log, partial: 'blood_pressure_log', as: :blood_pressure_log

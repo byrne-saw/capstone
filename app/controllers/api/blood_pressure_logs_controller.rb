@@ -6,5 +6,22 @@ class Api::BloodPressureLogsController < ApplicationController
     render 'index.json.jbuilder'
   end
 
-  
+  def create
+    if current_user.doctor || current_user.admin
+      user = params[:user_id]
+    else
+      user = current_user.id
+    end
+    @blood_pressure_log = BloodPressureLog.new(
+                                              user_id: user,
+                                              log_time: Time.now, 
+                                              systolic: params[:systolic],
+                                              diastolic: params[:diastolic]
+                                              )
+    if @blood_pressure_log.save
+        render 'show.json.jbuilder'
+    else
+      render json: {errors: @blood_pressure_log.errors.full_messages}, status:  :unprocessable_entity
+    end
+  end
 end

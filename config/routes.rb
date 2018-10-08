@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     post "/sessions" => "sessions#create"
 
     get "/blood_pressure_logs" => "blood_pressure_logs#index"
+    post "/blood_pressure_logs" => "blood_pressure_logs#create"
 
   end
 end
