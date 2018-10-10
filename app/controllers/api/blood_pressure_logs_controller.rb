@@ -24,4 +24,18 @@ class Api::BloodPressureLogsController < ApplicationController
       render json: {errors: @blood_pressure_log.errors.full_messages}, status:  :unprocessable_entity
     end
   end
+
+  def update
+    @blood_pressure_log = BloodPressureLog.find(params[:id])
+    @blood_pressure_log.log_time = params[:log_time] || @blood_pressure_log.log_time
+    @blood_pressure_log.systolic = params[:systolic] || @blood_pressure_log.systolic
+    @blood_pressure_log.diastolic = params[:diastolic] || @blood_pressure_log.diastolic
+    if @blood_pressure_log.save
+        render 'show.json.jbuilder'
+    else
+      render json: {errors: @blood_pressure_log.errors.full_messages}, status:  :unprocessable_entity
+    end
+  end
+
+
 end

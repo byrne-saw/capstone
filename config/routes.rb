@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
     get "/blood_pressure_logs" => "blood_pressure_logs#index"
     post "/blood_pressure_logs" => "blood_pressure_logs#create"
+    patch "/blood_pressure_logs/:id" => "blood_pressure_logs#update"
 
   end
 end
