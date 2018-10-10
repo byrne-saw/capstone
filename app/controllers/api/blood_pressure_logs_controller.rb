@@ -37,5 +37,10 @@ class Api::BloodPressureLogsController < ApplicationController
     end
   end
 
+  def destroy
+    @blood_pressure_log = BloodPressureLog.find(params[:id])
+    @blood_pressure_log.destroy
+    render json: {message: "Blood Pressure Log successfully desroyed"}
+  end
 
 end
