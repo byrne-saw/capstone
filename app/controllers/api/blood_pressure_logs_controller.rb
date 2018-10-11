@@ -2,13 +2,32 @@ class Api::BloodPressureLogsController < ApplicationController
   before_action :authenticate_user
 
   def index
-    @blood_pressure_logs = current_user.blood_pressure_logs
+
+    if params[:patient_id]
+      user = User.find(params[:patient_id])
+    end
+
+    if current_user.admin      
+      @blood_pressure_logs = user.blood_pressure_logs
+    elsif current_user.doctor
+
+      if current_user.patients.pluck(:id).include?(params[:patient_id].to_i) #candidate for user model method
+        @blood_pressure_logs = user.blood_pressure_logs
+      else
+        return render json: {message: "That is not one of your patients"}
+      end
+
+    else
+      @blood_pressure_logs = current_user.blood_pressure_logs
+    end
     render 'index.json.jbuilder'
+
   end
 
   def create
+
     if current_user.doctor || current_user.admin
-      user = params[:user_id]
+      user = params[:patient_id]
     else
       user = current_user.id
     end
@@ -23,9 +42,11 @@ class Api::BloodPressureLogsController < ApplicationController
     else
       render json: {errors: @blood_pressure_log.errors.full_messages}, status:  :unprocessable_entity
     end
+
   end
 
   def update
+
     @blood_pressure_log = BloodPressureLog.find(params[:id])
     @blood_pressure_log.log_time = params[:log_time] || @blood_pressure_log.log_time
     @blood_pressure_log.systolic = params[:systolic] || @blood_pressure_log.systolic
@@ -35,6 +56,7 @@ class Api::BloodPressureLogsController < ApplicationController
     else
       render json: {errors: @blood_pressure_log.errors.full_messages}, status:  :unprocessable_entity
     end
+
   end
 
   def destroy

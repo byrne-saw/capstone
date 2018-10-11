@@ -73,6 +73,6 @@
 
 patient = DoctorPatient.new(
                             doctor_id: 2,
-                            patient_id: 3
+                            patient_id: 4
                             )
 patient.save
