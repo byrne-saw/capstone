@@ -11,7 +11,7 @@ class Api::BloodPressureLogsController < ApplicationController
       @blood_pressure_logs = user.blood_pressure_logs
     elsif current_user.doctor
 
-      if current_user.patients.pluck(:id).include?(params[:patient_id].to_i) #candidate for user model method
+      if current_user.patients.pluck(:id).include?(params[:patient_id].to_i) 
         @blood_pressure_logs = user.blood_pressure_logs
       else
         return render json: {message: "That is not one of your patients"}
