@@ -27,12 +27,12 @@ class Api::BloodPressureLogsController < ApplicationController
   def create
 
     if current_user.doctor || current_user.admin
-      user = params[:patient_id]
+      user_id = params[:patient_id]
     else
-      user = current_user.id
+      user_id = current_user.id
     end
     @blood_pressure_log = BloodPressureLog.new(
-                                              user_id: user,
+                                              user_id: user_id,
                                               log_time: Time.now, 
                                               systolic: params[:systolic],
                                               diastolic: params[:diastolic]

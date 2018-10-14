@@ -62,6 +62,8 @@ class Api::AdminsController < ApplicationController
     end
   end
 
+private
+
   def find_doctor
     doctor = User.find(params[:doctor_id])
     if doctor.doctor
