@@ -15,5 +15,7 @@ Rails.application.routes.draw do
     patch "/blood_pressure_logs/:id" => "blood_pressure_logs#update"
     delete "/blood_pressure_logs/:id" => "blood_pressure_logs#destroy"
 
+    
+
   end
 end
