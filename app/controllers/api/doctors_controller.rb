@@ -24,4 +24,11 @@ class Api::DoctorsController < ApplicationController
       render json: {errors: user.errors.full_messages}, status: :bad_request
     end
   end
+
+
+  def patients_index
+    @patients = current_user.patients 
+    render 'index.json.jbuilder'
+  end
+
 end
