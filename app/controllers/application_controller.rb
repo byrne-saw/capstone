@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_doctor
-    unless current_user.doctor
+    unless current_user.doctor || current_user.admin 
       render json: {}, status: :unauthorized
     end
   end

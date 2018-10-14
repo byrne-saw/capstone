@@ -1,1 +1,1 @@
-json.array! @patients
+json.array! @Doctors
