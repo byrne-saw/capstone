@@ -1,1 +1,1 @@
-json.array! @Doctors
+json.array! @doctors, partial: 'doctor', as: :doctor
