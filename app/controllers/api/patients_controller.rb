@@ -30,7 +30,36 @@ class Api::PatientsController < ApplicationController
           d.last_name, p.last_name"
       ])
     else
-      @patients = current_user.patients.order(:last_name)
+      # @patients = current_user.patients.order(:last_name)
+      @patients = User.find_by_sql([
+        "select
+          p.first_name
+          , p.last_name
+          , p.phone_number
+          , p.email
+          , p.created_at
+          , p.id
+          , d.first_name as doctor_first_name
+          , d.last_name as doctor_last_name
+
+        from 
+          users p
+          left join doctor_patients dp on dp.patient_id = p.id
+          left join users d on d.id = dp.doctor_id
+
+        where
+          p.admin = false
+          and
+          p.doctor = false
+          #{p "and 
+          d.id = #{current_user.id}"
+          }
+
+        order by
+          d.last_name, p.last_name"
+      ])
+
+
     end
     render 'index.json.jbuilder'
   end
