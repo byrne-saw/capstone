@@ -11,7 +11,7 @@ class Api::BloodPressureLogsController < ApplicationController
       @blood_pressure_logs = user.blood_pressure_logs
     elsif current_user.doctor
 
-      if current_user.patients.pluck(:id).include?(params[:patient_id].to_i) 
+      if current_user.patients.pluck(:id).include?(params[:patient_id].to_i) # is the patient requested, a patient of the doctor?
         @blood_pressure_logs = user.blood_pressure_logs
       else
         return render json: {message: "That is not one of your patients"}
@@ -46,8 +46,24 @@ class Api::BloodPressureLogsController < ApplicationController
   end
 
   def update
+    #this following if statement is a candidate for a seperate method
+    if current_user.admin
+      blood_pressure_log_id = params[:id].to_i
+    elsif current_user.doctor
+      if current_user.patients.pluck(:id).include?(BloodPressureLog.find(params[:id].to_i).user_id)
+        blood_pressure_log_id = params[:id]
+      else
+        return render json: {message: "That is not one of your patient's logs"}
+      end
+    else
+      if current_user.id == BloodPressureLog.find(params[:id]).user_id
+        blood_pressure_log_id = params[:id]
+      else
+        return render json: {message: "That is not one of your logs"}
+      end
+    end
 
-    @blood_pressure_log = BloodPressureLog.find(params[:id])
+    @blood_pressure_log = BloodPressureLog.find(blood_pressure_log_id)
     @blood_pressure_log.log_time = params[:log_time] || @blood_pressure_log.log_time
     @blood_pressure_log.systolic = params[:systolic] || @blood_pressure_log.systolic
     @blood_pressure_log.diastolic = params[:diastolic] || @blood_pressure_log.diastolic
@@ -60,7 +76,23 @@ class Api::BloodPressureLogsController < ApplicationController
   end
 
   def destroy
-    @blood_pressure_log = BloodPressureLog.find(params[:id])
+    if current_user.admin
+      blood_pressure_log_id = params[:id].to_i
+    elsif current_user.doctor
+      if current_user.patients.pluck(:id).include?(BloodPressureLog.find(params[:id].to_i).user_id)
+        blood_pressure_log_id = params[:id]
+      else
+        return render json: {message: "That is not one of your patient's logs"}
+      end
+    else
+      if current_user.id == BloodPressureLog.find(params[:id]).user_id
+        blood_pressure_log_id = params[:id]
+      else
+        return render json: {message: "That is not one of your logs"}
+      end
+    end
+    
+    @blood_pressure_log = BloodPressureLog.find(blood_pressure_log_id)
     @blood_pressure_log.destroy
     render json: {message: "Blood Pressure Log successfully desroyed"}
   end

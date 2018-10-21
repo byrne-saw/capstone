@@ -1,7 +1,6 @@
 class Api::DoctorsController < ApplicationController
   before_action :authenticate_admin
 
-
   def index
     @doctors = User.where(doctor: true)
     render 'index.json.jbuilder'
