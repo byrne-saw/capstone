@@ -12,4 +12,14 @@ class User < ApplicationRecord
   has_many :patient_connections, class_name: "DoctorPatient", foreign_key: "doctor_id"
   has_many :patients, through: :patient_connections
 
+  def role
+    if self.admin == true
+      return "admin"
+    elsif self.doctor == true
+      return "doctor"
+    else
+      return "patient"
+    end    
+  end
+
 end
