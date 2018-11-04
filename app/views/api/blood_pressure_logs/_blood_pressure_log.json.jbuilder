@@ -1,4 +1,4 @@
 json.id blood_pressure_log.id
-json.log_time blood_pressure_log.log_time
+json.log_time blood_pressure_log.friendly_log_time
 json.systolic blood_pressure_log.systolic
 json.diastolic blood_pressure_log.diastolic
