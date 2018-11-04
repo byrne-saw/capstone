@@ -10,7 +10,7 @@ class BloodPressureLog < ApplicationRecord
 
   def friendly_log_time
     formated_time = log_time - 6.hours
-    formated_time.strftime("%A, %d %b %Y %l:%M %p")
+    formated_time.strftime("%a, %d %b %Y %l:%M %p")
   end
 
 end
