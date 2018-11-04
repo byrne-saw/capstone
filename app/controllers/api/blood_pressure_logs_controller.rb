@@ -8,17 +8,17 @@ class Api::BloodPressureLogsController < ApplicationController
     end
 
     if current_user.admin      
-      @blood_pressure_logs = user.blood_pressure_logs
+      @blood_pressure_logs = user.blood_pressure_logs.order(log_time: :desc)
     elsif current_user.doctor
 
       if current_user.patients.pluck(:id).include?(params[:patient_id].to_i) # is the patient requested, a patient of the doctor?
-        @blood_pressure_logs = user.blood_pressure_logs
+        @blood_pressure_logs = user.blood_pressure_logs.order(log_time: :desc)
       else
         return render json: {message: "That is not one of your patients"}
       end
 
     else
-      @blood_pressure_logs = current_user.blood_pressure_logs
+      @blood_pressure_logs = current_user.blood_pressure_logs.order(log_time: :desc)
     end
     render 'index.json.jbuilder'
 
@@ -43,6 +43,27 @@ class Api::BloodPressureLogsController < ApplicationController
       render json: {errors: @blood_pressure_log.errors.full_messages}, status:  :unprocessable_entity
     end
 
+  end
+
+  def recent
+    if params[:patient_id]
+      user = User.find(params[:patient_id])
+    end
+
+    if current_user.admin      
+      @blood_pressure_logs = user.blood_pressure_logs.order(log_time: :desc).limit(5)
+    elsif current_user.doctor
+
+      if current_user.patients.pluck(:id).include?(params[:patient_id].to_i) # is the patient requested, a patient of the doctor?
+        @blood_pressure_logs = user.blood_pressure_logs.order(log_time: :desc).limit(5)
+      else
+        return render json: {message: "That is not one of your patients"}
+      end
+
+    else
+      @blood_pressure_logs = current_user.blood_pressure_logs.order(log_time: :desc).limit(5)
+    end
+    render 'index.json.jbuilder'
   end
 
   def update

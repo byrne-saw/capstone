@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
     get "/blood_pressure_logs" => "blood_pressure_logs#index"
     post "/blood_pressure_logs" => "blood_pressure_logs#create"
+    get "/blood_pressure_logs/recent" => "blood_pressure_logs#recent"
     patch "/blood_pressure_logs/:id" => "blood_pressure_logs#update"
     delete "/blood_pressure_logs/:id" => "blood_pressure_logs#destroy"
     
