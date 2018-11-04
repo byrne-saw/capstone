@@ -8,4 +8,9 @@ class BloodPressureLog < ApplicationRecord
 
   belongs_to :user
 
+  def friendly_log_time
+    formated_time = log_time - 6.hours
+    formated_time.strftime("%A, %d %b %Y %l:%M %p")
+  end
+
 end
