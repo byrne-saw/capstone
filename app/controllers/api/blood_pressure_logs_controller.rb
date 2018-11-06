@@ -31,7 +31,7 @@ class Api::BloodPressureLogsController < ApplicationController
     else
       user_id = current_user.id
     end
-    log_time_build = params[:log_date] + " " + params[:log_hour_min]
+    log_time_build = params[:log_date].to_s + " " + params[:log_hour_min].to_s
 
     @blood_pressure_log = BloodPressureLog.new(
                                               user_id: user_id,
