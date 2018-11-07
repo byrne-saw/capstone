@@ -12,6 +12,7 @@ class Api::PatientsController < ApplicationController
               , p.id
               , d.first_name as doctor_first_name
               , d.last_name as doctor_last_name
+              , 'Dr. ' || d.first_name || ' ' || d.last_name as doctor_name 
 
             from 
               users p
