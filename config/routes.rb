@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     post "/admins" => "admins#create"
 
     get "/doctors" => "doctors#index" #display all doctors to admin
+    get "/doctors_info_list" => "doctors#doctors_info_list"
     post "/doctors" => "doctors#create"
 
     get "/patients" => "patients#index" #if admin, group by doctor, if doctor is loged in only show this doctor's patients.

@@ -22,4 +22,13 @@ class User < ApplicationRecord
     end    
   end
 
+  def full_name(prefix="")
+    "#{prefix}#{prefix == '' ? "" : " "}#{first_name} #{last_name}"
+  end
+
+  def self.doctor_options_list
+    list = self.where(doctor: true).map {|doctor| {value: doctor.id, text: doctor.full_name("Dr.")}}
+    [{value: nil, text: 'Select the new patient\'s doctor'}] + list
+  end
+
 end

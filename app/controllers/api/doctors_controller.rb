@@ -24,4 +24,9 @@ class Api::DoctorsController < ApplicationController
     end
   end
 
+  def doctors_info_list
+    @doctors_info_list = User.doctor_options_list
+    render json: @doctors_info_list
+  end
+
 end
