@@ -12,7 +12,7 @@ class TwilioText
     client = Twilio::REST::Client.new
     client.messages.create({
       from: Rails.application.credentials.twilio_phone_number,
-      # to: '+17738853893',
+      # to: '+17738853893', #for testing
       to: phone_number,
       body: message
     })
