@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     get "/notifications" => "notifications#index"
     post "/notifications" => "notifications#create"
     delete "/notifications/:id" => "notifications#destroy"
+    get "/alert" => "notifications#alert"
 
   end
 end

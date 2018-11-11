@@ -71,4 +71,39 @@ class Api::NotificationsController < ApplicationController
       @notification.destroy
       render json: {message: "Notification successfully destroyed"}
   end
+
+  def alert
+    trigger_user(current_user.id)
+    notifications = Notification.where("user_id = ? AND triggered = ? AND banner_alerted = ?", current_user.id, true, false)
+    if notifications.count > 0
+      alert = true
+    else
+      alert = false
+    end
+
+    if alert
+      render json: {message: "You haven't submitted a blood pressure reading in #{@hours_between} hours. Please do so soon!"}
+    end 
+
+    notifications.each do |notice|
+      notice.banner_alerted = true
+      notice.save
+    end
+  end
+
+  def trigger_user(cu_id)
+    notifications = Notification.where("user_id = ? AND (triggered = ? OR triggered is ?) AND (banner_alerted = ? OR banner_alerted is ?)", cu_id, false, nil, false, nil)
+      max_bp = BloodPressureLog.where(user_id: cu_id).order(log_time: :desc).limit(1).pluck(:log_time)
+      now = Time.current
+      time_diff = now - max_bp[0]
+      @hours_between = (time_diff / 1.hour).round
+    notifications.each do |notice| 
+      if @hours_between > notice.interval
+        notice.triggered = true
+        notice.save
+      end
+    end
+    return @hours_between
+  end
+
 end
