@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     post "/notifications" => "notifications#create"
     delete "/notifications/:id" => "notifications#destroy"
     get "/alert" => "notifications#alert"
+    get "/text" => "notifications#text"
 
   end
 end
