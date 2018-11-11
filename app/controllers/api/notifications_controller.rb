@@ -83,6 +83,8 @@ class Api::NotificationsController < ApplicationController
 
     if alert
       render json: {message: "You haven't submitted a blood pressure reading in #{@hours_between} hours. Please do so soon!"}
+    else
+      render json: {message: ""}
     end 
 
     notifications.each do |notice|
