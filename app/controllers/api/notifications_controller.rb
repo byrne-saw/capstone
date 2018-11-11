@@ -109,8 +109,10 @@ class Api::NotificationsController < ApplicationController
   end
 
   def text
-    message = "testing at #{Time.now}"
-    phone_number = "(773)-885-3893"
+    # message = "testing at #{Time.now}"
+    # phone_number = "(773)-885-3893"
+    message = params[:message]
+    phone_number = params[:phone_number]
    TwilioText.new(message, phone_number).text
   end
 

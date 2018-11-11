@@ -68,4 +68,22 @@ class Api::PatientsController < ApplicationController
       render json: {errors: patient.errors.full_messages}, status: :bad_request
     end
   end
+
+  def update
+    @user = User.find(params[:id])
+    @user.first_name = params[:first_name].blank? ? @user.first_name : params[:first_name]
+    @user.last_name = params[:last_name].blank? ? @user.last_name : params[:last_name]
+    @user.phone_number = params[:phone_number].blank? ? @user.phone_number : params[:phone_number]
+    @user.email = params[:email].blank? ? @user.email : params[:email]
+
+    if @user.save
+      render json: {message: "User successfully updated"}
+    else
+      render json: {errors: @user.errors.full_messages}, status:  :unprocessable_entity
+    end
+  end
+
+  def destroy
+
+  end
 end
