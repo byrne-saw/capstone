@@ -108,4 +108,10 @@ class Api::NotificationsController < ApplicationController
     return @hours_between
   end
 
+  def text
+    message = "testing at #{Time.now}"
+    phone_number = "(773)-885-3893"
+   TwilioText.new(message, phone_number).text
+  end
+
 end
