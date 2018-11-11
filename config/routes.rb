@@ -19,5 +19,10 @@ Rails.application.routes.draw do
     patch "/blood_pressure_logs/:id" => "blood_pressure_logs#update"
     delete "/blood_pressure_logs/:id" => "blood_pressure_logs#destroy"
     
+    get "/notifications" => "notifications#index"
+    post "/notifications" => "notifications#create"
+    delete "/notifications/:id" => "notifications#destroy"
+    get "/alert" => "notifications#alert"
+
   end
 end

@@ -1,0 +1,10 @@
+json.id notification.id
+json.user_id notification.user_id
+json.notify_type notification.notify_type 
+json.interval notification.interval
+json.triggered notification.triggered
+json.banner_alerted notification.banner_alerted
+json.sms_text notification.sms_text
+json.text_at notification.text_at
+json.text_sent notification.text_sent
+json.created_at notification.created_at

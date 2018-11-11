@@ -13,7 +13,7 @@ class Api::DoctorsController < ApplicationController
                     phone_number: params[:phone_number],
                     email: params[:email],
                     password: params[:password],
-                    password_confirmation: params[:password_confirmation],
+                    password_confirmation: params[:password_confirmation],  
                     admin: false, 
                     doctor: true
                     )

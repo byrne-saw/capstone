@@ -57,6 +57,12 @@ class Api::PatientsController < ApplicationController
                                                       patient_id: patient.id
                                                       )
       patient_doctor_relationship.save
+      notify = Notification.new(
+                                user_id: patient.id,
+                                notify_type: "Blood Pressure",
+                                interval: 24
+                                )
+      notify.save
       render json: {message: 'Patient created successfully'}, status: :created
     else
       render json: {errors: patient.errors.full_messages}, status: :bad_request

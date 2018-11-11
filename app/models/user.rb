@@ -6,11 +6,14 @@ class User < ApplicationRecord
   validates :phone_number, presence: true
 
   has_many :blood_pressure_logs
+  has_many :notifications
+
   has_many :doctor_connections, class_name: "DoctorPatient", foreign_key: "patient_id"
   has_many :doctors, through: :doctor_connections
 
   has_many :patient_connections, class_name: "DoctorPatient", foreign_key: "doctor_id"
   has_many :patients, through: :patient_connections
+
 
   def role
     if self.admin == true

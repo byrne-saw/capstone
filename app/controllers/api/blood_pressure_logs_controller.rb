@@ -40,7 +40,8 @@ class Api::BloodPressureLogsController < ApplicationController
                                               diastolic: params[:diastolic]
                                               )
     if @blood_pressure_log.save
-        render 'show.json.jbuilder'
+      notification_reset(user_id)
+      render 'show.json.jbuilder'
     else
       render json: {errors: @blood_pressure_log.errors.full_messages}, status:  :unprocessable_entity
     end
@@ -99,16 +100,17 @@ class Api::BloodPressureLogsController < ApplicationController
   end
 
   def destroy
+    bp_user_id = BloodPressureLog.find(params[:id].to_i).user_id
     if current_user.admin
       blood_pressure_log_id = params[:id].to_i
     elsif current_user.doctor
-      if current_user.patients.pluck(:id).include?(BloodPressureLog.find(params[:id].to_i).user_id)
+      if current_user.patients.pluck(:id).include?(bp_user_id)
         blood_pressure_log_id = params[:id]
       else
         return render json: {message: "That is not one of your patient's logs"}
       end
     else
-      if current_user.id == BloodPressureLog.find(params[:id]).user_id
+      if current_user.id == bp_user_id
         blood_pressure_log_id = params[:id]
       else
         return render json: {message: "That is not one of your logs"}
@@ -117,7 +119,21 @@ class Api::BloodPressureLogsController < ApplicationController
     
     @blood_pressure_log = BloodPressureLog.find(blood_pressure_log_id)
     @blood_pressure_log.destroy
+    notification_reset(bp_user_id)
     render json: {message: "Blood Pressure Log successfully desroyed"}
+  end
+
+
+  private
+
+  def notification_reset(cu_id)
+    notifications = Notification.where("user_id = ? AND triggered = ?", cu_id, true)
+    notifications.each do |notice|
+      notice.triggered = false
+      notice.banner_alerted = false
+      notice.sms_text = false
+      notice.save
+    end
   end
 
 end
