@@ -38,11 +38,11 @@ class Api::NotificationsController < ApplicationController
                                     user_id: user_id,
                                     notify_type: params[:notify_type] || "Blood Pressure",
                                     interval: params[:interval],
-                                    triggered: params[:triggered],
-                                    banner_alerted: params[:banner_alerted],
+                                    triggered: false,
+                                    banner_alerted: false,
                                     sms_text: params[:sms_text],
                                     text_at: params[:text_at],
-                                    text_sent: params[:text_sent]
+                                    text_sent: false
                                     )
     if @notification.save
       render 'show.json.jbuilder'
@@ -109,8 +109,10 @@ class Api::NotificationsController < ApplicationController
   end
 
   def text
-    message = "testing at #{Time.now}"
-    phone_number = "(773)-885-3893"
+    # message = "testing at #{Time.now}"
+    # phone_number = "(773)-885-3893"
+    message = params[:message]
+    phone_number = params[:phone_number]
    TwilioText.new(message, phone_number).text
   end
 

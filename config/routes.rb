@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
     get "/patients" => "patients#index"
     post "/patients" => "patients#create"
+    patch "/patients/:id" => "patients#update"
+    delete "/patients/:id" => "patients#destroy"
 
     get "/blood_pressure_logs" => "blood_pressure_logs#index"
     post "/blood_pressure_logs" => "blood_pressure_logs#create"
@@ -23,7 +25,7 @@ Rails.application.routes.draw do
     post "/notifications" => "notifications#create"
     delete "/notifications/:id" => "notifications#destroy"
     get "/alert" => "notifications#alert"
-    get "/text" => "notifications#text"
+    post "/text" => "notifications#text"
 
   end
 end

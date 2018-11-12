@@ -63,9 +63,45 @@ class Api::PatientsController < ApplicationController
                                 interval: 24
                                 )
       notify.save
+
+      message = "Welcome to Apple-A-Day #{patient.first_name} - I can't wait to start working with you! Let me know if you have any questions.  ~ Dr.#{doctor.first_name} #{doctor.last_name}"
+      phone_number = patient.phone_number
+      TwilioText.new(message, phone_number).text
+
       render json: {message: 'Patient created successfully'}, status: :created
     else
       render json: {errors: patient.errors.full_messages}, status: :bad_request
     end
+  end
+
+  def update
+    @user = User.find(params[:id])
+    @user.first_name = params[:first_name].blank? ? @user.first_name : params[:first_name]
+    @user.last_name = params[:last_name].blank? ? @user.last_name : params[:last_name]
+    @user.phone_number = params[:phone_number].blank? ? @user.phone_number : params[:phone_number]
+    @user.email = params[:email].blank? ? @user.email : params[:email]
+
+    if @user.save
+      render json: {message: "User successfully updated"}
+    else
+      render json: {errors: @user.errors.full_messages}, status:  :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    notifications = Notification.where("user_id = ?", params[:id])
+    unless notifications = []
+      notifications.each do |notice|
+        notice.destroy
+      end
+    end
+    bp_logs = BloodPressureLog.where("user_id = ?", params[:id])
+    unless bp_logs = []
+      bp_logs.each do |bp_log|
+        bp_log.destroy
+      end
+    end
+    @user.destroy
   end
 end
