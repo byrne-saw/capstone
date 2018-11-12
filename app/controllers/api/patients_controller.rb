@@ -51,6 +51,7 @@ class Api::PatientsController < ApplicationController
                       admin: false, 
                       doctor: false
                       )
+    patient.twilio_number = patient.twilio_convert(patient.phone_number)
     if patient.save
       patient_doctor_relationship = DoctorPatient.new(
                                                       doctor_id: doctor.id,

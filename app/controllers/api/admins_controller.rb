@@ -17,6 +17,7 @@ class Api::AdminsController < ApplicationController
                     admin: true, 
                     doctor: false
                     )
+    admin.twilio_number = admin.twilio_convert(admin.phone_number)
     if admin.save
       render json: {message: 'Admin created successfully'}, status: :created
     else
