@@ -5,7 +5,7 @@ User.create!([
 ])
 
 DoctorPatient.create!([
-  {doctor_id: 2, patient_id: 3}
+  {doctor_id: 3, patient_id: 1}
 ])
 
 BloodPressureLog.create!([
