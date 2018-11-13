@@ -92,13 +92,13 @@ class Api::PatientsController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     notifications = Notification.where("user_id = ?", params[:id])
-    unless notifications = []
+    unless notifications == []
       notifications.each do |notice|
         notice.destroy
       end
     end
     bp_logs = BloodPressureLog.where("user_id = ?", params[:id])
-    unless bp_logs = []
+    unless bp_logs == []
       bp_logs.each do |bp_log|
         bp_log.destroy
       end
