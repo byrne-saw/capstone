@@ -65,7 +65,7 @@ class Api::PatientsController < ApplicationController
                                 )
       notify.save
 
-      message = "Welcome to Apple-A-Day #{patient.first_name} - I can't wait to start working with you! Let me know if you have any questions.  ~ Dr.#{doctor.first_name} #{doctor.last_name}"
+      message = "Welcome to Apple-A-Day #{patient.first_name} - I can't wait to start working with you! Let me know if you have any questions.  ~ Dr. #{doctor.first_name} #{doctor.last_name}"
       phone_number = patient.twilio_number
       TwilioText.new(message, phone_number).text
 

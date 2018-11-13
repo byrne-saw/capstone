@@ -105,30 +105,31 @@ BloodPressureLog.create!([
   {user_id: 1, log_time: "2018-11-09 07:44:00", systolic: 127, diastolic: 87},
   {user_id: 1, log_time: "2018-11-10 09:44:00", systolic: 119, diastolic: 70},
   {user_id: 1, log_time: "2018-11-11 06:44:00", systolic: 144, diastolic: 72},
-  {user_id: 1, log_time: "2018-11-12 10:44:00", systolic: 137, diastolic: 84},  
+  {user_id: 1, log_time: "2018-11-12 05:44:00", systolic: 137, diastolic: 84},  
 ])
 
 
 
 Notification.create!([
-  {user_id: 10, notify_type: "Blood Pressure", interval: 24, triggered: nil, banner_alerted: nil, sms_text: nil, text_sent: nil, text_at: nil},
-  {user_id: 11, notify_type: "Blood Pressure", interval: 24, triggered: nil, banner_alerted: nil, sms_text: nil, text_sent: nil, text_at: nil},
-  {user_id: 12, notify_type: "Blood Pressure", interval: 24, triggered: nil, banner_alerted: nil, sms_text: nil, text_sent: nil, text_at: nil},
-  {user_id: 13, notify_type: "Blood Pressure", interval: 24, triggered: nil, banner_alerted: nil, sms_text: nil, text_sent: nil, text_at: nil},
-  {user_id: 14, notify_type: "Blood Pressure", interval: 24, triggered: nil, banner_alerted: nil, sms_text: nil, text_sent: nil, text_at: nil},
-  {user_id: 15, notify_type: "Blood Pressure", interval: 24, triggered: nil, banner_alerted: nil, sms_text: nil, text_sent: nil, text_at: nil},
-  {user_id: 16, notify_type: "Blood Pressure", interval: 24, triggered: nil, banner_alerted: nil, sms_text: nil, text_sent: nil, text_at: nil},
-  {user_id: 17, notify_type: "Blood Pressure", interval: 24, triggered: nil, banner_alerted: nil, sms_text: nil, text_sent: nil, text_at: nil},
-  {user_id: 18, notify_type: "Blood Pressure", interval: 24, triggered: nil, banner_alerted: nil, sms_text: nil, text_sent: nil, text_at: nil},
-  {user_id: 19, notify_type: "Blood Pressure", interval: 24, triggered: nil, banner_alerted: nil, sms_text: nil, text_sent: nil, text_at: nil},
-  {user_id: 20, notify_type: "Blood Pressure", interval: 24, triggered: nil, banner_alerted: nil, sms_text: nil, text_sent: nil, text_at: nil},
-  {user_id: 21, notify_type: "Blood Pressure", interval: 24, triggered: nil, banner_alerted: nil, sms_text: nil, text_sent: nil, text_at: nil},
-  {user_id: 22, notify_type: "Blood Pressure", interval: 24, triggered: nil, banner_alerted: nil, sms_text: nil, text_sent: nil, text_at: nil},
-  {user_id: 23, notify_type: "Blood Pressure", interval: 24, triggered: nil, banner_alerted: nil, sms_text: nil, text_sent: nil, text_at: nil},
-  {user_id: 24, notify_type: "Blood Pressure", interval: 24, triggered: nil, banner_alerted: nil, sms_text: nil, text_sent: nil, text_at: nil},
-  {user_id: 25, notify_type: "Blood Pressure", interval: 24, triggered: nil, banner_alerted: nil, sms_text: nil, text_sent: nil, text_at: nil},
-  {user_id: 26, notify_type: "Blood Pressure", interval: 24, triggered: nil, banner_alerted: nil, sms_text: nil, text_sent: nil, text_at: nil},
-  {user_id: 27, notify_type: "Blood Pressure", interval: 24, triggered: nil, banner_alerted: nil, sms_text: nil, text_sent: nil, text_at: nil}
+  {user_id: 1, notify_type: "Blood Pressure", interval: 24, triggered: true, banner_alerted: false, sms_text: false, text_sent: false, text_at: false},
+  {user_id: 10, notify_type: "Blood Pressure", interval: 24, triggered: true, banner_alerted: false, sms_text: false, text_sent: false, text_at: false},
+  {user_id: 11, notify_type: "Blood Pressure", interval: 24, triggered: true, banner_alerted: false, sms_text: false, text_sent: false, text_at: false},
+  {user_id: 12, notify_type: "Blood Pressure", interval: 24, triggered: true, banner_alerted: false, sms_text: false, text_sent: false, text_at: false},
+  {user_id: 13, notify_type: "Blood Pressure", interval: 24, triggered: true, banner_alerted: false, sms_text: false, text_sent: false, text_at: false},
+  {user_id: 14, notify_type: "Blood Pressure", interval: 24, triggered: true, banner_alerted: false, sms_text: false, text_sent: false, text_at: false},
+  {user_id: 15, notify_type: "Blood Pressure", interval: 24, triggered: true, banner_alerted: false, sms_text: false, text_sent: false, text_at: false},
+  {user_id: 16, notify_type: "Blood Pressure", interval: 24, triggered: true, banner_alerted: false, sms_text: false, text_sent: false, text_at: false},
+  {user_id: 17, notify_type: "Blood Pressure", interval: 24, triggered: true, banner_alerted: false, sms_text: false, text_sent: false, text_at: false},
+  {user_id: 18, notify_type: "Blood Pressure", interval: 24, triggered: true, banner_alerted: false, sms_text: false, text_sent: false, text_at: false},
+  {user_id: 19, notify_type: "Blood Pressure", interval: 24, triggered: true, banner_alerted: false, sms_text: false, text_sent: false, text_at: false},
+  {user_id: 20, notify_type: "Blood Pressure", interval: 24, triggered: true, banner_alerted: false, sms_text: false, text_sent: false, text_at: false},
+  {user_id: 21, notify_type: "Blood Pressure", interval: 24, triggered: true, banner_alerted: false, sms_text: false, text_sent: false, text_at: false},
+  {user_id: 22, notify_type: "Blood Pressure", interval: 24, triggered: true, banner_alerted: false, sms_text: false, text_sent: false, text_at: false},
+  {user_id: 23, notify_type: "Blood Pressure", interval: 24, triggered: true, banner_alerted: false, sms_text: false, text_sent: false, text_at: false},
+  {user_id: 24, notify_type: "Blood Pressure", interval: 24, triggered: true, banner_alerted: false, sms_text: false, text_sent: false, text_at: false},
+  {user_id: 25, notify_type: "Blood Pressure", interval: 24, triggered: true, banner_alerted: false, sms_text: false, text_sent: false, text_at: false},
+  {user_id: 26, notify_type: "Blood Pressure", interval: 24, triggered: true, banner_alerted: false, sms_text: false, text_sent: false, text_at: false},
+  {user_id: 27, notify_type: "Blood Pressure", interval: 24, triggered: true, banner_alerted: false, sms_text: false, text_sent: false, text_at: false}
 ])
 
 
