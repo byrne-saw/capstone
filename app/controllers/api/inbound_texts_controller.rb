@@ -19,7 +19,7 @@ class Api::InboundTextsController < ApplicationController
                                               diastolic: message_clean[1]
                                               )
     if blood_pressure_log.save
-      text_body = "Hi #{user.first_name} you have successfully added a blood pressure reading of #{blood_pressure_log.systolic} / #{blood_pressure_log.diastolic} on #{blood_pressure_log.strftime('%a, %d %b %Y %H:%M')}"
+      text_body = "Hi #{user.first_name} you have successfully added a blood pressure reading of #{blood_pressure_log.systolic} / #{blood_pressure_log.diastolic} on #{blood_pressure_log.log_time.strftime('%a, %d %b %Y %H:%M')}"
     else
       text_body = "Hi, that didn't work. Please try submitting again."
     end
