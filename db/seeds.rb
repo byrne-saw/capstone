@@ -1,7 +1,7 @@
 User.create!([
   {first_name: "Larry", last_name: "David", phone_number: "773-885-3893", email: "larry@jokes.com", doctor: false, admin: false, password: "password", password_confirmation: "password"},
   {first_name: "Andrew", last_name: "Byrnes", phone_number: "773-885-3893", email: "byrnesaw@gmail.com", doctor: false, admin: true, password: "password", password_confirmation: "password"},
-  {first_name: "Gregory", last_name: "House", phone_number: "555-555-5555", email: "dr.house@house.com", doctor: true, admin: false, password: "password", password_confirmation: "password"
+  {first_name: "Gregory", last_name: "House", phone_number: "555-555-5555", email: "dr.house@house.com", doctor: true, admin: false, password: "password", password_confirmation: "password"}
 ])
 
 DoctorPatient.create!([
