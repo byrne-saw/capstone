@@ -86,11 +86,12 @@ class Api::BloodPressureLogsController < ApplicationController
         return render json: {message: "That is not one of your logs"}
       end
     end
-
+    log_time_build = params[:log_date].to_s + " " + params[:log_hour_min].to_s
     @blood_pressure_log = BloodPressureLog.find(blood_pressure_log_id)
-    @blood_pressure_log.log_time = params[:log_time] || @blood_pressure_log.log_time
-    @blood_pressure_log.systolic = params[:systolic] || @blood_pressure_log.systolic
-    @blood_pressure_log.diastolic = params[:diastolic] || @blood_pressure_log.diastolic
+    @blood_pressure_log.log_time = log_time_build.blank? ? @blood_pressure_log.log_time : log_time_build
+    @blood_pressure_log.systolic = params[:systolic].blank? ? @blood_pressure_log.systolic : params[:systolic]
+    @blood_pressure_log.diastolic = params[:diastolic].blank? ? @blood_pressure_log.diastolic : params[:diastolic]
+
     if @blood_pressure_log.save
         render 'show.json.jbuilder'
     else
