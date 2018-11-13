@@ -113,6 +113,8 @@ class Api::NotificationsController < ApplicationController
     # phone_number = "(773)-885-3893"
     message = params[:message]
     phone_number = params[:phone_number]
+    phone_number = "+1" + phone_number.delete("^0-9")[0..9]
+
    TwilioText.new(message, phone_number).text
   end
 
