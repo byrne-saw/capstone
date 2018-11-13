@@ -14,7 +14,7 @@ class Api::InboundTextsController < ApplicationController
 
     blood_pressure_log = BloodPressureLog.new(
                                               user_id: user.id,
-                                              log_time: Time.now.in_time_zone("Central Time (US & Canada)"), 
+                                              log_time: Time.now - 6.hours, 
                                               systolic: message_clean[0],
                                               diastolic: message_clean[1]
                                               )
