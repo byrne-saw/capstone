@@ -34,4 +34,8 @@ class User < ApplicationRecord
     [{value: nil, text: 'Select the new patient\'s doctor'}] + list
   end
 
+  def twilio_convert(phone_number)
+    twilio_converted = "+1" + phone_number.delete("^0-9")[0..9]
+  end
+
 end

@@ -4,8 +4,9 @@ class TwilioText
 
   def initialize(message, phone_number)
     @message = message
-    @phone_number = phone_number.delete("^0-9")[0..9]
-    @phone_number = "+1" + phone_number.delete("^0-9")[0..9]
+    # @phone_number = phone_number.delete("^0-9")[0..9]
+    # @phone_number = "+1" + phone_number.delete("^0-9")[0..9]
+    @phone_number = phone_number
   end
 
   def text

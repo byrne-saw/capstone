@@ -17,6 +17,7 @@ class Api::DoctorsController < ApplicationController
                     admin: false, 
                     doctor: true
                     )
+    doctor.twilio_number = doctor.twilio_convert(doctor.phone_number)
     if doctor.save
       render json: {message: 'Doctor created successfully'}, status: :created
     else

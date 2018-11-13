@@ -27,5 +27,7 @@ Rails.application.routes.draw do
     get "/alert" => "notifications#alert"
     post "/text" => "notifications#text"
 
+    post "/inbound_texts" => "inbound_texts#bp_create"
+
   end
 end
