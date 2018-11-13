@@ -63,39 +63,77 @@ DoctorPatient.create!([
 
 
 BloodPressureLog.create!([
-  {user_id: 3, log_time: "2018-10-08 22:44:17", systolic: 118, diastolic: 80},
-  {user_id: 3, log_time: "2018-10-08 22:44:51", systolic: 119, diastolic: 81},
-  {user_id: 3, log_time: "2018-10-08 22:45:21", systolic: 121, diastolic: 82},
-  {user_id: 3, log_time: "2018-10-07 20:04:12", systolic: 99, diastolic: 88},
-  {user_id: 3, log_time: "2018-11-04 19:16:15", systolic: 55, diastolic: 55},
-  {user_id: 3, log_time: "2018-11-04 19:16:36", systolic: 190, diastolic: 190},
-  {user_id: 3, log_time: "2018-11-04 19:17:15", systolic: 100, diastolic: 100},
-  {user_id: 3, log_time: "2018-11-04 19:17:33", systolic: 8, diastolic: 8},
-  {user_id: 3, log_time: "2018-11-04 19:53:53", systolic: 44, diastolic: 55},
-  {user_id: 3, log_time: "2018-11-04 19:53:55", systolic: 44, diastolic: 55},
-  {user_id: 3, log_time: "2018-11-04 19:54:03", systolic: 5, diastolic: 5},
-  {user_id: 3, log_time: "2018-11-04 19:54:12", systolic: 55, diastolic: 55},
-  {user_id: 3, log_time: "2018-11-04 19:57:58", systolic: 55, diastolic: 55},
-  {user_id: 3, log_time: "2018-11-04 20:18:13", systolic: 99, diastolic: 67},
-  {user_id: 3, log_time: "2018-11-06 19:46:00", systolic: 89, diastolic: 100},
-  {user_id: 3, log_time: "2018-11-09 02:29:00", systolic: 1, diastolic: 1},
-  {user_id: 3, log_time: "2018-10-02 23:04:12", systolic: 99, diastolic: 88},
-  {user_id: 11, log_time: "2018-11-11 18:37:00", systolic: 55, diastolic: 67},
-  {user_id: 11, log_time: "2018-11-11 18:40:00", systolic: 44, diastolic: 55},
-  {user_id: 1, log_time: "2018-11-12 23:25:40", systolic: 180, diastolic: 88},
-  {user_id: 1, log_time: "2018-11-12 23:47:18", systolic: 180, diastolic: 90},
-  {user_id: 1, log_time: "2018-11-12 23:48:31", systolic: 180, diastolic: 90},
-  {user_id: 1, log_time: "2018-11-12 23:52:54", systolic: 180, diastolic: 90},
-  {user_id: 1, log_time: "2018-11-12 23:55:27", systolic: 180, diastolic: 88},
-  {user_id: 1, log_time: "2018-11-12 23:58:25", systolic: 180, diastolic: 70},
-  {user_id: 1, log_time: "2018-11-12 23:59:23", systolic: 190, diastolic: 66},
-  {user_id: 3, log_time: "2018-11-13 00:00:00", systolic: 44, diastolic: 44},
-  {user_id: 3, log_time: "2018-11-13 00:00:00", systolic: 150, diastolic: 87},
-  {user_id: 3, log_time: "2018-11-13 00:00:00", systolic: 89, diastolic: 87}
+  {user_id: 1, log_time: "2018-10-01 06:44:00", systolic: 124, diastolic: 80},
+  {user_id: 1, log_time: "2018-10-02 07:44:00", systolic: 124, diastolic: 85},
+  {user_id: 1, log_time: "2018-10-03 08:44:00", systolic: 138, diastolic: 77},
+  {user_id: 1, log_time: "2018-10-04 09:44:00", systolic: 128, diastolic: 84},
+  {user_id: 1, log_time: "2018-10-05 10:44:00", systolic: 133, diastolic: 74},
+  {user_id: 1, log_time: "2018-10-06 09:44:00", systolic: 122, diastolic: 89},
+  {user_id: 1, log_time: "2018-10-07 08:44:00", systolic: 141, diastolic: 71},
+  {user_id: 1, log_time: "2018-10-08 07:44:00", systolic: 128, diastolic: 76},
+  {user_id: 1, log_time: "2018-10-09 06:44:00", systolic: 129, diastolic: 72},
+  {user_id: 1, log_time: "2018-10-10 05:44:00", systolic: 119, diastolic: 81},
+  {user_id: 1, log_time: "2018-10-11 08:44:00", systolic: 140, diastolic: 79},
+  {user_id: 1, log_time: "2018-10-12 07:44:00", systolic: 130, diastolic: 76},
+  {user_id: 1, log_time: "2018-10-13 09:44:00", systolic: 142, diastolic: 89},
+  {user_id: 1, log_time: "2018-10-14 10:44:00", systolic: 137, diastolic: 81},
+  {user_id: 1, log_time: "2018-10-15 06:44:00", systolic: 133, diastolic: 87},
+  {user_id: 1, log_time: "2018-10-16 06:44:00", systolic: 142, diastolic: 85},
+  {user_id: 1, log_time: "2018-10-17 07:44:00", systolic: 130, diastolic: 83},
+  {user_id: 1, log_time: "2018-10-18 07:44:00", systolic: 136, diastolic: 81},
+  {user_id: 1, log_time: "2018-10-19 07:44:00", systolic: 126, diastolic: 89},
+  {user_id: 1, log_time: "2018-10-20 07:44:00", systolic: 121, diastolic: 84},
+  {user_id: 1, log_time: "2018-10-21 07:44:00", systolic: 128, diastolic: 74},
+  {user_id: 1, log_time: "2018-10-22 07:44:00", systolic: 142, diastolic: 76},
+  {user_id: 1, log_time: "2018-10-23 07:44:00", systolic: 141, diastolic: 71},
+  {user_id: 1, log_time: "2018-10-24 07:44:00", systolic: 120, diastolic: 73},
+  {user_id: 1, log_time: "2018-10-25 06:44:00", systolic: 137, diastolic: 78},
+  {user_id: 1, log_time: "2018-10-26 06:44:00", systolic: 145, diastolic: 88},
+  {user_id: 1, log_time: "2018-10-27 06:44:00", systolic: 121, diastolic: 87},
+  {user_id: 1, log_time: "2018-10-28 06:44:00", systolic: 145, diastolic: 86},
+  {user_id: 1, log_time: "2018-10-29 06:44:00", systolic: 135, diastolic: 81},
+  {user_id: 1, log_time: "2018-10-30 08:44:00", systolic: 140, diastolic: 89},
+  {user_id: 1, log_time: "2018-10-31 08:44:00", systolic: 145, diastolic: 84},
+  {user_id: 1, log_time: "2018-11-01 08:44:00", systolic: 118, diastolic: 85},
+  {user_id: 1, log_time: "2018-11-02 08:44:00", systolic: 118, diastolic: 81},
+  {user_id: 1, log_time: "2018-11-03 08:44:00", systolic: 128, diastolic: 79},
+  {user_id: 1, log_time: "2018-11-04 09:44:00", systolic: 138, diastolic: 83},
+  {user_id: 1, log_time: "2018-11-05 09:44:00", systolic: 141, diastolic: 82},
+  {user_id: 1, log_time: "2018-11-06 09:44:00", systolic: 133, diastolic: 87},
+  {user_id: 1, log_time: "2018-11-07 08:44:00", systolic: 123, diastolic: 89},
+  {user_id: 1, log_time: "2018-11-08 06:44:00", systolic: 119, diastolic: 84},
+  {user_id: 1, log_time: "2018-11-09 07:44:00", systolic: 127, diastolic: 87},
+  {user_id: 1, log_time: "2018-11-10 09:44:00", systolic: 119, diastolic: 70},
+  {user_id: 1, log_time: "2018-11-11 06:44:00", systolic: 144, diastolic: 72},
+  {user_id: 1, log_time: "2018-11-12 10:44:00", systolic: 137, diastolic: 84},  
 ])
 
 
-# Notification.create!([
-#   {user_id: 8, notify_type: "Blood Pressure", interval: 24, triggered: nil, banner_alerted: nil, sms_text: nil, text_sent: nil, text_at: nil},
-#   {user_id: 9, notify_type: "Blood Pressure", interval: 24, triggered: nil, banner_alerted: nil, sms_text: nil, text_sent: nil, text_at: nil}
-# ])
+
+Notification.create!([
+  {user_id: 10, notify_type: "Blood Pressure", interval: 24, triggered: nil, banner_alerted: nil, sms_text: nil, text_sent: nil, text_at: nil},
+  {user_id: 11, notify_type: "Blood Pressure", interval: 24, triggered: nil, banner_alerted: nil, sms_text: nil, text_sent: nil, text_at: nil},
+  {user_id: 12, notify_type: "Blood Pressure", interval: 24, triggered: nil, banner_alerted: nil, sms_text: nil, text_sent: nil, text_at: nil},
+  {user_id: 13, notify_type: "Blood Pressure", interval: 24, triggered: nil, banner_alerted: nil, sms_text: nil, text_sent: nil, text_at: nil},
+  {user_id: 14, notify_type: "Blood Pressure", interval: 24, triggered: nil, banner_alerted: nil, sms_text: nil, text_sent: nil, text_at: nil},
+  {user_id: 15, notify_type: "Blood Pressure", interval: 24, triggered: nil, banner_alerted: nil, sms_text: nil, text_sent: nil, text_at: nil},
+  {user_id: 16, notify_type: "Blood Pressure", interval: 24, triggered: nil, banner_alerted: nil, sms_text: nil, text_sent: nil, text_at: nil},
+  {user_id: 17, notify_type: "Blood Pressure", interval: 24, triggered: nil, banner_alerted: nil, sms_text: nil, text_sent: nil, text_at: nil},
+  {user_id: 18, notify_type: "Blood Pressure", interval: 24, triggered: nil, banner_alerted: nil, sms_text: nil, text_sent: nil, text_at: nil},
+  {user_id: 19, notify_type: "Blood Pressure", interval: 24, triggered: nil, banner_alerted: nil, sms_text: nil, text_sent: nil, text_at: nil},
+  {user_id: 20, notify_type: "Blood Pressure", interval: 24, triggered: nil, banner_alerted: nil, sms_text: nil, text_sent: nil, text_at: nil},
+  {user_id: 21, notify_type: "Blood Pressure", interval: 24, triggered: nil, banner_alerted: nil, sms_text: nil, text_sent: nil, text_at: nil},
+  {user_id: 22, notify_type: "Blood Pressure", interval: 24, triggered: nil, banner_alerted: nil, sms_text: nil, text_sent: nil, text_at: nil},
+  {user_id: 23, notify_type: "Blood Pressure", interval: 24, triggered: nil, banner_alerted: nil, sms_text: nil, text_sent: nil, text_at: nil},
+  {user_id: 24, notify_type: "Blood Pressure", interval: 24, triggered: nil, banner_alerted: nil, sms_text: nil, text_sent: nil, text_at: nil},
+  {user_id: 25, notify_type: "Blood Pressure", interval: 24, triggered: nil, banner_alerted: nil, sms_text: nil, text_sent: nil, text_at: nil},
+  {user_id: 26, notify_type: "Blood Pressure", interval: 24, triggered: nil, banner_alerted: nil, sms_text: nil, text_sent: nil, text_at: nil},
+  {user_id: 27, notify_type: "Blood Pressure", interval: 24, triggered: nil, banner_alerted: nil, sms_text: nil, text_sent: nil, text_at: nil}
+])
+
+
+
+
+
+
+
